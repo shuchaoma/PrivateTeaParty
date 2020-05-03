@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>PrivateTeaParty </title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <style>
+      h2 {
+        text-align: left
+      }
+      p {text-indent:35px}
+    </style>
+
+  </head>
+
+
+
+
+<body>
+
+  <h2> Time is: </h2>
+  <script>
+    document.write(Date());
+  </script>
+
+  <script src="./moment.js"></script>
+
+  <h2>Friends list as below:</h2>
+  <p id="friends"></p>
+
+
+  <h2>weeknumber is:</h2>
+  <p id="weeknumber"></p>
+
+  <h2> the one is: </h2>
+  <p id="theone"></p>
+
+  <script>
+    function whoistheone(flag) {
+      var friends = ["shuge", "司佩斯", "莫晓邪", "伽点略"];
+      var weeknumber = moment().week();
+      var index = weeknumber % friends.length;
+      var theone = friends[index];
+
+      if (flag == "friends")
+        return friends;
+      if (flag == "weeknumber")
+        return weeknumber;
+      if (flag == "theone")
+        return theone
+      return 0;
+    }
+
+    document.getElementById("weeknumber").innerHTML = whoistheone("weeknumber");
+    document.getElementById("friends").innerHTML = whoistheone("friends");
+    document.getElementById("theone").innerHTML = whoistheone("theone");
+  </script>
+
+
+</body>
+
+</html>
